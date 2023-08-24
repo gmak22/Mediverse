@@ -7,7 +7,7 @@ import {
     Stack,
     Text,
     VisuallyHidden,
-    Input,s
+    Input,
     IconButton,
     useColorModeValue,
     Image
