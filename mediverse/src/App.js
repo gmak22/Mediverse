@@ -4,7 +4,7 @@ import { AllRoutes } from "./Pages/AllRoutes";
 
 export default function App() {
     return <>
-        <Navbar />
+        <Navbar/>
         <AllRoutes/>
         <Footer/>
     </>;
