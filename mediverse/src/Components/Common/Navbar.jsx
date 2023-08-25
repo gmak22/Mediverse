@@ -34,7 +34,7 @@ function Navbar() {
                     </Button>
                     <Spacer />
                     <Button onClick={() => navigate('/signup')}>
-                        Signup
+                        Sign Up
                     </Button>
                 </>
             )}
