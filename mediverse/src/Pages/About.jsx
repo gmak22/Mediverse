@@ -4,7 +4,7 @@ export const About = () => {
     return (<>
 
         {/* <HStack spacing={6} align="center">
-            <Box textAlign="center">
+            <Box textAlign="center" width={400}>
                 <Image
                     src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5789.jpg?size=626&ext=jpg&ga=GA1.2.1342494070.1692619306&semt=sph"
                     width={800}
@@ -63,52 +63,6 @@ export const About = () => {
             </Box>
           
         </HStack> */}
-
-        {/* <Flex justifyContent="center" alignItems="center" p={10}>
-            <Box textAlign="center">
-                <Image
-                    src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5789.jpg?size=626&ext=jpg&ga=GA1.2.1342494070.1692619306&semt=sph"
-                   
-                    alt="Thomas Jack"
-                />
-                <Text fontWeight="bold" fontSize="xl" mt={2} noOfLines={1}>
-                    Thomas Jack
-                </Text>
-            </Box>
-            <Box textAlign="center">
-                <Image
-                    src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5789.jpg?size=626&ext=jpg&ga=GA1.2.1342494070.1692619306&semt=sph"
-               
-                    alt="Thomas Jack"
-                />
-                <Text fontWeight="bold" fontSize="xl" mt={2} noOfLines={1}>
-                    Thomas Jack
-                </Text>
-            </Box>
-            <Box textAlign="center" mx={6}>
-                <Image
-                    src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5789.jpg?size=626&ext=jpg&ga=GA1.2.1342494070.1692619306&semt=sph"
-              
-                    alt="Thomas Jack"
-                />
-                <Text fontWeight="bold" fontSize="xl" mt={2} noOfLines={1}>
-                    Thomas Jack
-                </Text>
-            </Box>
-            <Box textAlign="center" mx={6}>
-                <Image
-                    src="https://img.freepik.com/free-photo/doctor-with-his-arms-crossed-white-background_1368-5789.jpg?size=626&ext=jpg&ga=GA1.2.1342494070.1692619306&semt=sph"
-             
-                    rounded="full"
-                    alt="Thomas Jack"
-                />
-                <Text fontWeight="bold" fontSize="xl" mt={2} noOfLines={1}>
-                    Thomas Jack
-                </Text>
-            </Box>
-        </Flex> */}
-
-
 
         <Flex justify="center" align="center" mt={15} mb={6}>
             <Image
