@@ -12,8 +12,10 @@ import {
   AlertIcon,
   Flex,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
+  const navigate = useNavigate()
   const [cardData, setCardData] = useState({
     cardHolder: "",
     cardNumber: "",
@@ -51,10 +53,16 @@ function Checkout() {
 
   const handleBuyNow = () => {
     {otp == 1234 && alert('Thank you for your purchase!');}
+    navigate('/')
   };
 
   return (
-    <Box py={12} px={4}>
+    <Box margin="auto" 
+    py={12} px={4} 
+    w="45%" 
+    bg="#FBF0B2" 
+    mt={8} mb={8}
+    borderRadius="xl">
       <Heading as="h1" fontSize="4xl" textAlign="center" mb={8}>
         Checkout
       </Heading>
@@ -67,6 +75,7 @@ function Checkout() {
               name="cardHolder"
               value={cardData.cardHolder}
               onChange={handleCardInputChange}
+              borderColor="gray"
             />
           </FormControl>
           <FormControl>
@@ -76,34 +85,38 @@ function Checkout() {
               name="cardNumber"
               value={cardData.cardNumber}
               onChange={handleCardInputChange}
+              borderColor="gray"
             />
           </FormControl>
           <Flex justify="space-between">
             <FormControl flex="1">
               <FormLabel>Expiry Month</FormLabel>
               <Input
-                type="text"
+                type="number"
                 name="expiryMonth"
                 value={cardData.expiryMonth}
                 onChange={handleCardInputChange}
+                borderColor="gray"
               />
             </FormControl>
             <FormControl flex="1" ml={4}>
               <FormLabel>Expiry Year</FormLabel>
               <Input
-                type="text"
+                type="number"
                 name="expiryYear"
                 value={cardData.expiryYear}
                 onChange={handleCardInputChange}
+                borderColor="gray"
               />
             </FormControl>
             <FormControl flex="1" ml={4}>
               <FormLabel>CVV</FormLabel>
               <Input
-                type="text"
+                type="number"
                 name="cvv"
                 value={cardData.cvv}
                 onChange={handleCardInputChange}
+                borderColor="gray"
               />
             </FormControl>
           </Flex>
@@ -128,7 +141,7 @@ function Checkout() {
         <FormControl mt={4}>
           <FormLabel>Enter OTP</FormLabel>
           <Input
-            type="text"
+            type="number"
             value={otp}
             onChange={handleOTPChange}
           />

@@ -43,13 +43,13 @@ export const Faqpage = () => {
   ];
 
   return (
-    <Box p={4}>
-      <Heading as="h1" fontSize="xl" mb={4}>
+    <Box p={4} bg="#B9B4C7" w="70%" margin="auto" mt={12} mb={12} borderRadius="xl">
+      <Heading as="h1" fontSize="xl" mb={4} textAlign="center">
         Frequently Asked Questions
       </Heading>
       <Accordion allowToggle>
         {faqData.map((faq, index) => (
-          <AccordionItem key={index}>
+          <AccordionItem key={index}  bg="#FAF0E6" borderRadius="md" mb={1}>
             <h2>
               <AccordionButton>
                 <Box flex="1" textAlign="left" fontWeight="bold">

@@ -2,34 +2,23 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Box,
+    Flex,
     Button,
-    ChakraProvider,
     Input,
     FormControl,
     FormLabel,
     Heading,
     Link,
-    Alert,
-    AlertIcon,
     Spacer,
+    useToast,
 } from '@chakra-ui/react';
 
 function Signup() {
     const navigate = useNavigate();
+    const toast = useToast();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [alertMessage, setAlertMessage] = useState('');
-    const [alertStatus, setAlertStatus] = useState('');
-
-    const showAlert = (status, message) => {
-        setAlertStatus(status);
-        setAlertMessage(message);
-        setTimeout(() => {
-            setAlertStatus('');
-            setAlertMessage('');
-        }, 3000);
-    };
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -37,36 +26,73 @@ function Signup() {
 
         for (let i = 0; i < savedData.length; i++) {
             if (email !== '' && savedData[i].email === email) {
-                showAlert('error', 'Account already exists!');
+                toast({
+                    title: 'Please fill details first!',
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                    position: 'top',
+                  });
                 return;
             }
         }
 
         if (email === '' || password === '') {
-            showAlert('error', 'Please enter email and new password!');
+            toast({
+                title: 'Please enter email and new password!',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+              });
         } else if (email === '') {
-            showAlert('error', 'Please enter email');
+            toast({
+                title: 'Please enter email!',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+              });
+
         } else if (password === '') {
-            showAlert('error', 'Please create password');
+            toast({
+                title: 'Please create password!',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+              });
         } else if (name === '') {
-            showAlert('error', 'Please enter name');
+            toast({
+                title: 'Please enter email name!',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+              });
         } else {
             savedData.push({ name, email, password });
             localStorage.setItem('signup', JSON.stringify(savedData));
-            showAlert('success', 'Account created successfully!');
+            toast({
+                title: 'Account created successfully!',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+              });
             navigate('/login');
         }
     };
 
     return (
-        <ChakraProvider>
-            <Box id="main" textAlign="center" py="8">
-                {alertStatus && (
-                    <Alert status={alertStatus}>
-                        <AlertIcon />
-                        {alertMessage}
-                    </Alert>
-                )}
+        <Box
+            w="35%"
+            margin="auto"
+            bg="#E2C799" p={3}
+            mt={8} mb={8}
+            borderRadius="xl"
+        >
+            <Box id="main" textAlign="center" py="8" >
                 <form onSubmit={handleSignup}>
                     <Heading as="h2" mb="4">
                         Sign Up
@@ -77,6 +103,8 @@ function Signup() {
                         <Input
                             type="text"
                             placeholder="Enter your name"
+                            _placeholder={{ color: 'black' }}
+                            borderColor="gray"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
@@ -86,6 +114,8 @@ function Signup() {
                         <Input
                             type="email"
                             placeholder="Enter your email"
+                            _placeholder={{ color: 'black' }}
+                            borderColor="gray"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -95,21 +125,27 @@ function Signup() {
                         <Input
                             type="password"
                             placeholder="Create new password"
+                            _placeholder={{ color: 'black' }}
+                            borderColor="gray"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </FormControl>
-                    <Button type="submit" colorScheme="blue">
+                    <Button type="submit" colorScheme="green">
                         Sign up
                     </Button>
-                    <Box id="notify" mt="4">
+
+                    <Flex margin="auto" mt="4" w="80%">
                         <p>Already a member?</p>
-                        <Link href="/login">Sign in</Link>
-                    </Box>
+                        <Spacer />
+                        <Link href="/login" color="blue">Sign In</Link>
+                    </Flex>
                 </form>
             </Box>
-        </ChakraProvider>
+        </Box>
     );
 }
 
 export default Signup;
+
+
