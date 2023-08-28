@@ -8,13 +8,13 @@ import {
   Input,
   Button,
   Collapse,
-  Alert,
-  AlertIcon,
   Flex,
+  useToast,
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
 function Checkout() {
+  const toast = useToast();
   const navigate = useNavigate()
   const [cardData, setCardData] = useState({
     cardHolder: "",
@@ -26,7 +26,6 @@ function Checkout() {
 
   const [showOTP, setShowOTP] = useState(false);
   const [otp, setOTP] = useState("");
-  const [error, setError] = useState("");
 
   const handleCardInputChange = (e) => {
     const { name, value } = e.target;
@@ -40,9 +39,14 @@ function Checkout() {
     const { cardNumber, cvv, expiryMonth, expiryYear } = cardData;
 
     if (!cardNumber || !cvv || !expiryMonth || !expiryYear) {
-      setError('Please fill in all card details.');
+      toast({
+        title: 'Enter Valid Details!',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+        position: 'top',
+      });
     } else {
-      setError("");
       setShowOTP(true);
     }
   };
@@ -52,8 +56,26 @@ function Checkout() {
   };
 
   const handleBuyNow = () => {
-    {otp == 1234 && alert('Thank you for your purchase!');}
-    navigate('/')
+    if(otp == 1234){
+      toast({
+        title: 'Thank you for your Purchase!',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+        position: 'top',
+      })
+      navigate('/')
+    }
+    else{
+      toast({
+        title: 'Wrong OTP',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+        position: 'top',
+      })
+    }
+    
   };
 
   return (
@@ -130,12 +152,7 @@ function Checkout() {
         >
           Proceed
         </Button>
-        {error && (
-          <Alert status="error" mt={4}>
-            <AlertIcon />
-            {error}
-          </Alert>
-        )}
+
       </form>
       <Collapse in={showOTP} animateOpacity>
         <FormControl mt={4}>

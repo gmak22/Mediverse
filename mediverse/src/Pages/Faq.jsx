@@ -49,7 +49,7 @@ export const Faqpage = () => {
       </Heading>
       <Accordion allowToggle>
         {faqData.map((faq, index) => (
-          <AccordionItem key={index}  bg="#FAF0E6" borderRadius="md" mb={1}>
+          <AccordionItem key={index} bg="#FAF0E6" borderRadius="md" mb={1}>
             <h2>
               <AccordionButton>
                 <Box flex="1" textAlign="left" fontWeight="bold">
@@ -61,7 +61,7 @@ export const Faqpage = () => {
             <AccordionPanel pb={4}>
               {faq.answer}
             </AccordionPanel>
-            <Spacer/>
+            <Spacer />
           </AccordionItem>
         ))}
       </Accordion>

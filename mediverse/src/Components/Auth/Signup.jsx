@@ -33,7 +33,7 @@ function Signup() {
                     duration: 3000,
                     isClosable: true,
                     position: 'top',
-                  });
+                });
                 return;
             }
         }
@@ -45,7 +45,7 @@ function Signup() {
                 duration: 3000,
                 isClosable: true,
                 position: 'top',
-              });
+            });
         } else if (email === '') {
             toast({
                 title: 'Please enter email!',
@@ -53,7 +53,7 @@ function Signup() {
                 duration: 3000,
                 isClosable: true,
                 position: 'top',
-              });
+            });
 
         } else if (password === '') {
             toast({
@@ -62,7 +62,7 @@ function Signup() {
                 duration: 3000,
                 isClosable: true,
                 position: 'top',
-              });
+            });
         } else if (name === '') {
             toast({
                 title: 'Please enter email name!',
@@ -70,7 +70,7 @@ function Signup() {
                 duration: 3000,
                 isClosable: true,
                 position: 'top',
-              });
+            });
         } else {
             savedData.push({ name, email, password });
             localStorage.setItem('signup', JSON.stringify(savedData));
@@ -80,7 +80,7 @@ function Signup() {
                 duration: 3000,
                 isClosable: true,
                 position: 'top',
-              });
+            });
             navigate('/login');
         }
     };

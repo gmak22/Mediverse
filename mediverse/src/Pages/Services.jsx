@@ -26,7 +26,7 @@ export const Services = () => {
                             boxSize="150px"
                             mx="auto"
                         />
-                        <Text mt={4} fontWeight="bold">
+                        <Text mt={4} fontSize="xl" fontWeight="bold">
                             Dental Care
                         </Text>
                         <Text mt={2}>Providing comprehensive dental services.</Text>
@@ -54,7 +54,7 @@ export const Services = () => {
                             boxSize="150px"
                             mx="auto"
                         />
-                        <Text mt={4} fontWeight="bold">
+                        <Text mt={4} fontSize="xl" fontWeight="bold">
                             Cardiology
                         </Text>
                         <Text mt={2}>Specialized care for heart-related issues.</Text>
@@ -82,7 +82,7 @@ export const Services = () => {
                             boxSize="150px"
                             mx="auto"
                         />
-                        <Text mt={4} fontWeight="bold">
+                        <Text mt={4} fontSize="xl" fontWeight="bold">
                             Allergic Issue
                         </Text>
                         <Text mt={2}>Specialized care for allergic reactions.</Text>
@@ -113,7 +113,7 @@ export const Services = () => {
                             boxSize="150px"
                             mx="auto"
                         />
-                        <Text mt={4} fontWeight="bold">
+                        <Text mt={4} fontSize="xl" fontWeight="bold">
                             Eye Care
                         </Text>
                         <Text mt={2}>Offering advanced eye care treatments.</Text>
@@ -141,7 +141,7 @@ export const Services = () => {
                             boxSize="150px"
                             mx="auto"
                         />
-                        <Text mt={4} fontWeight="bold">
+                        <Text mt={4} fontSize="xl" fontWeight="bold">
                             Neurology
                         </Text>
                         <Text mt={2}>Advanced treatments for neurological disorders.</Text>
@@ -169,7 +169,7 @@ export const Services = () => {
                             boxSize="150px"
                             mx="auto"
                         />
-                        <Text mt={4} fontWeight="bold">
+                        <Text mt={4} fontSize="xl" fontWeight="bold">
                             Orthopedic
                         </Text>
                         <Text mt={2}>Expertise in orthopaedic care and surgeries.</Text>
@@ -178,7 +178,7 @@ export const Services = () => {
                 </Box>
             </Flex>
 
-            <Plans/>
+            <Plans />
         </Box>
     );
 };

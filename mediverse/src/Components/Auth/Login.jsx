@@ -55,7 +55,7 @@ function Login() {
     <Box textAlign="center"
       py="8" w="32%"
       margin="auto"
-      bg="#A2FF86" p={5}
+      bg="#CAEDFF" p={5}
       mt={8} mb={8}
       borderRadius="xl"
     >

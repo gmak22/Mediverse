@@ -11,12 +11,12 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('login');
     setLoggedInUser(null);
     toast({
-        title: 'Logout Successful',
-        status: 'error',
-        duration: 3000,
-        isClosable: true,
-        position: 'top',
-      });
+      title: 'Logout Successful',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+      position: 'top',
+    });
   };
 
   return (
