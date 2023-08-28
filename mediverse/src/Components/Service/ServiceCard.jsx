@@ -6,14 +6,19 @@ export const ServiceCard = ({ title, content, icon }) => {
     return (
         <Center>
             <Box
-                //width="100%"
+                w={500}
+                h={250}
                 borderWidth="1px"
                 borderRadius="lg"
                 p={4}
-                textAlign="center"
+                alignItems="center"
                 boxShadow="xl"
+                textAlign="center"
             >
-                <IconComponent size={30} color="blue.500" mb={2} />
+                <Box>
+                    <IconComponent size={30} color="blue.500" mb={5} />
+                </Box>
+
                 <Heading size="md" mb={2}>
                     {title}
                 </Heading>
@@ -22,6 +27,6 @@ export const ServiceCard = ({ title, content, icon }) => {
                     Read More
                 </Button>
             </Box>
-        </Center> 
+        </Center>
     );
 };
