@@ -13,12 +13,12 @@ export const AllRoutes = () => {
         <Box>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/services" element={<Services/>} />
+                <Route path="/services" element={<Services />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/faq" element={<Faqpage/>} />
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/signup" element={<Signup/>}/>
-                <Route path="/checkout" element={<Checkout/>}/>
+                <Route path="/faq" element={<Faqpage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/checkout" element={<Checkout />} />
             </Routes>
         </Box>
     );

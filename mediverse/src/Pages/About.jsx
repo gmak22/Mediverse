@@ -6,13 +6,13 @@ export const About = () => {
     return (
         <Box mt={10} mb={10}>
             <Text fontSize="4xl" color="#191D88" fontWeight="600" mb={10} textAlign="center">About Us</Text>
-            <Flex w="70%" p={4} 
-            bg="#CCEEBC" 
-            margin="auto" 
-            justify="center" 
-            align="center" 
-            mt={15} mb={10} 
-            borderRadius="xl">
+            <Flex w="70%" p={4}
+                bg="#CCEEBC"
+                margin="auto"
+                justify="center"
+                align="center"
+                mt={15} mb={10}
+                borderRadius="xl">
                 <Image
                     src="https://img.freepik.com/free-photo/male-doctor-examining-patient_1170-2156.jpg"
                     alt="Random Image"
@@ -66,10 +66,10 @@ export const About = () => {
             </Flex>
 
             <Box mb={20}>
-            <Text fontSize="4xl" color="#191D88" fontWeight="600" mb={10} textAlign="center">Why Choose Us</Text>
-                <WhyUS/>
+                <Text fontSize="4xl" color="#191D88" fontWeight="600" mb={10} textAlign="center">Why Choose Us</Text>
+                <WhyUS />
             </Box>
         </Box>
 
-    ) 
+    )
 }
