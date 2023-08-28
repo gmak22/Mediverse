@@ -22,22 +22,18 @@ export const WhyUS = () => {
 
   return (
     <VStack align="center" spacing={10} mt={15} mb={6}>
-      <Heading fontSize="4xl" mb={4}>
-        Why Choose Us
-      </Heading>
-
       <Flex justify="center" justifyContent="center">
-        <Box w="70%" bg="#9DB2BF" p={3} borderRadius="xl">
+        <Box w="70%" bg="#D4ADFC" p={3} borderRadius="xl">
           <Flex justify="space-between">
             {whyChooseUsItems.map((item, index) => (
-              <Box key={index} p={4} m={1} borderWidth="1px" borderColor="gray.200" borderRadius="md">
+              <Box key={index} p={4} m={1} borderWidth="1px" borderColor="#5C469C" borderRadius="md">
                 <Flex align="center" mb={2}>
-                  <Icon as={item.icon} boxSize={6} color="green.500" />
-                  <Heading as="h2" fontSize="md" ml={2}>
+                  <Icon as={item.icon} boxSize={6} color="lightgreen" />
+                  <Heading as="h2" fontSize="lg" ml={2}>
                     {item.title}
                   </Heading>
                 </Flex>
-                <Text>{item.description}</Text>
+                <Text fontSize="lg">{item.description}</Text>
               </Box>
             ))}
           </Flex>

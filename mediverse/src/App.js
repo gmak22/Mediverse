@@ -6,6 +6,6 @@ export default function App() {
     return <>
         <Navbar/>
         <AllRoutes/>
-        <Footer/>  
+        <Footer/>
     </>;
 }

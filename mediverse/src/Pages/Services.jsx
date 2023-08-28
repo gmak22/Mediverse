@@ -5,7 +5,7 @@ import Plans from '../Components/Service/Plans';
 export const Services = () => {
     return (
         <Box mt={10} mb={10}>
-            <Text fontSize="4xl" textAlign="center" fontWeight="bold" color="blue">Our Services</Text>
+            <Text fontSize="4xl" textAlign="center" color="#191D88" fontWeight="600">Our Services</Text>
             <Flex justifyContent="center" mt={6}>
                 <Box
                     borderWidth="1px"

@@ -15,34 +15,62 @@ export const Home = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
-    const handleSubmit = () => {
-        toast({
-            title: 'Appointment Booked',
-            status: 'success',
-            duration: 3000,
-            isClosable: true,
-        });
-        navigate('/')
-    }
     const backgroundImageUrl = "url(https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg)";
+
+    const [bookData, setBookData] = useState({
+        fullName: "",
+        phoneNumber: "",
+        date: "",
+        time: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setBookData({
+            ...bookData,
+            [name]: value,
+        });
+    };
+
+    const { fullName, phoneNumber, date, time } = bookData;
+
+    const handleSubmit = (e) => {
+        console.log("Hi")
+        e.preventDefault();
+
+        if (!fullName || !phoneNumber || !date || !time) {
+            toast({
+                title: 'Error',
+                description: 'Please fill in all the details.',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        } else {
+            toast({
+                title: 'Appointment Booked',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            });
+            closeModal();
+            navigate('/');
+        }
+    }
+
     return (
         <Box>
             <Center>
-                <Flex py={12} w="80%" mb={12} mt={12}>
+                <Flex py={12} w="80%" mb={8} mt={4}>
                     <Box flex={1}>
                         <Image src="https://i.ibb.co/XpPR13K/image-med-cleanup.png" h="100%" width="400px" />
                     </Box>
-                    <Box flex={1} pr={4}>
-                        <Text fontSize="4xl" fontWeight="800">Find Out A Doctor</Text>
-                        <Text fontSize="4xl" fontWeight="800">More Experienced</Text>
-                        <Text fontSize="4xl" fontWeight="800" mb={6}>And More Easy</Text>
-                        <Text mb={4}>A GREAT PLACE TO RECEIVE CARE.</Text>
-                        <Text mb={6}>BEST OUTCOME FOR EVERY PATIENT EVERY TIME.</Text>
-                        <Flex w="70%">
-                            <Button colorScheme="purple">Get In Touch</Button>
-                            <Spacer />
-                            <Button colorScheme="green">See more</Button>
-                        </Flex>
+                    <Box flex={1} pr={4} margin={"auto"}>
+                        <Text fontSize="5xl" fontWeight="800" color="#191D88">Find Out A Doctor</Text>
+                        <Text fontSize="5xl" fontWeight="800" color="#191D88">More Experienced</Text>
+                        <Text fontSize="5xl" fontWeight="800" mb={6} color="#191D88">And More Easy</Text>
+                        <Text mb={4} fontSize="xl">A GREAT PLACE TO RECEIVE CARE.</Text>
+                        <Text fontSize="xl">BEST OUTCOME FOR EVERY PATIENT EVERY TIME.</Text>
                     </Box>
                 </Flex>
             </Center>
@@ -57,10 +85,10 @@ export const Home = () => {
                 color="white"
                 w="80%"
                 margin="auto"
-                mb={12}
+                mb={20}
             >
-                <Box flex={1} direc ml={5}>
-                    <Text fontSize="4xl" fontWeight="bold" mb={4} color="blue">
+                <Box flex={1} ml={5}>
+                    <Text fontSize="4xl" fontWeight="bold" mb={4} color="#191D88">
                         Short Story about <br /> Mediverse Clinic
                     </Text>
                     <Flex flexDirection="column">
@@ -93,70 +121,82 @@ export const Home = () => {
                 </Box>
             </Flex>
 
-            <Box mb={12}>
+            <Box mb={20}>
                 <Flex flexDirection="column" textAlign="center">
-                    <Text fontSize="5xl" color="blue">Leading The Way In</Text>
-                    <Text fontSize="5xl" mb={5} color="blue">Medical Excellence</Text>
+                    <Text fontSize="5xl" color="#191D88" fontWeight="600">Leading The Way In</Text>
+                    <Text fontSize="5xl" mb={5} color="#191D88" fontWeight="600">Medical Excellence</Text>
                     <Text fontSize="2xl">Not just better healthcare, but a better healthcare experience. Passionate about medicine.</Text>
                     <Text fontSize="2xl">Compassionate About People. Serving all people through exemplary health care,</Text>
                     <Text fontSize="2xl" mb={5}>education research and community outreach.</Text>
                     <Flex margin="auto">
-                        <Button colorScheme="blue" mr={3} onClick={openModal}>Get Free Consultation</Button>
-                        <Button bg="#1b3c74" color="white" _hover={{ bg: "#1b3c74" }}>Call on +912345678</Button>
+                        <Button colorScheme="blue" mr={3} onClick={openModal}>Book Appointment</Button>
+                        <Button bg="#1b3c74" color="white" _hover={{ bg: "#1b3c74" }}>Call on +2819 (4613) 2930</Button>
                     </Flex>
                 </Flex>
 
                 <Modal isOpen={isModalOpen} onClose={closeModal}>
                     <ModalOverlay />
                     <ModalContent>
-                        <ModalHeader>Book Appointment</ModalHeader>
+                        <ModalHeader textAlign="center" color="#191D88" fontSize="2xl" fontWeight="bold">Book Appointment</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>
-                            <form onSubmit={handleSubmit}>
+                            <form>
                                 <FormControl mb={3}>
                                     <FormLabel>Full Name</FormLabel>
                                     <Input
                                         type="text"
+                                        name="fullName"
+                                        value={bookData.fullName}
+                                        onChange={handleChange}
                                     />
                                 </FormControl>
                                 <FormControl mb={3}>
                                     <FormLabel>Phone Number</FormLabel>
                                     <Input
-                                        type="text"
+                                        type="number"
+                                        name="phoneNumber"
+                                        value={bookData.phoneNumber}
+                                        onChange={handleChange}
                                     />
                                 </FormControl>
                                 <FormControl mb={3}>
                                     <FormLabel>Date</FormLabel>
                                     <Input
                                         type="date"
+                                        name="date"
+                                        value={bookData.date}
+                                        onChange={handleChange}
                                     />
                                 </FormControl>
                                 <FormControl mb={3}>
                                     <FormLabel>Time</FormLabel>
                                     <Input
                                         type="time"
+                                        name="time"
+                                        value={bookData.time}
+                                        onChange={handleChange}
                                     />
                                 </FormControl>
                             </form>
                         </ModalBody>
                         <ModalFooter gap={2}>
                             <Button onClick={closeModal}>Cancel</Button>
-                            <Button type="submit" colorScheme="blue">
-                                    Book
-                                </Button>
+                            <Button colorScheme="blue" onClick={handleSubmit}>
+                                Book
+                            </Button>
                         </ModalFooter>
                     </ModalContent>
                 </Modal>
             </Box>
 
-            <Box textAlign="center" mb={12}>
-                <Text fontSize="4xl" mb={8}>Our Doctors</Text>
+            <Box textAlign="center" mb={20}>
+                <Text fontSize="4xl" mb={8} color="#191D88" fontWeight="600">Meet Our Experts</Text>
                 <Doctors />
             </Box>
 
-            <Box mb={12}>
+            <Box mb={20}>
                 <Box textAlign="center" mb={8}>
-                    <Text fontSize="4xl">Testimonials</Text>
+                    <Text fontSize="4xl" color="#191D88" fontWeight="600">What Our Client Say About Us</Text>
                 </Box>
                 <Box>
                     <TestimonialCard />

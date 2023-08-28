@@ -30,7 +30,8 @@ function Navbar() {
             <Spacer />
             {loggedInUser ? (
                 <Flex gap={4} alignItems="center">
-                    <Text>Hi, {loggedInUser.name}</Text>
+                    {/* <Text>Hi, {loggedInUser.name}</Text> */}
+                    <Button borderRadius="2xl">{loggedInUser.name}</Button>
                     <Spacer />
                     <Button colorScheme='green' onClick={handleLogout}>
                         Log out
@@ -42,7 +43,7 @@ function Navbar() {
                         Login
                     </Button>
                     <Spacer />
-                    <Button onClick={() => navigate('/signup')}>
+                    <Button colorScheme='green' onClick={() => navigate('/signup')}>
                         Sign Up
                     </Button>
                 </Flex>
@@ -58,7 +59,7 @@ function LinkButton({ children, href, isActive }) {
         <Button variant="link"
             colorScheme={isActive && "blue"}
             onClick={() => navigate(href)}
-            color={isActive ? 'green.500' : 'inherit'}
+            color={isActive ? '#191D88' : 'inherit'}
             fontWeight={isActive ? 'bold' : 'normal'}
             fontSize={isActive ? 'xl' : 'lg'}
         >

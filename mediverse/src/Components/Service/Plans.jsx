@@ -5,7 +5,6 @@ import {
     Heading,
     Text,
     VStack,
-    useColorModeValue,
     List,
     ListItem,
     ListIcon,
@@ -23,7 +22,7 @@ function PriceWrapper({ children }) {
             shadow="base"
             borderWidth="1px"
             alignSelf={{ base: 'center', lg: 'flex-start' }}
-            borderColor={useColorModeValue('gray.200', 'gray.500')}
+            borderColor="gray"
             borderRadius={'xl'}>
             {children}
         </Box>
@@ -52,8 +51,8 @@ function Plans() {
     return (
         <Box py={12}>
             <VStack spacing={2} textAlign="center">
-                <Heading as="h1" fontSize="4xl">
-                    Plans That Fit Your Need
+                <Heading as="h1" fontSize="4xl" color="#191D88" fontWeight="600" mb={10}>
+                    Healthcare Plans For You
                 </Heading>
             </VStack>
             <Stack
@@ -112,10 +111,10 @@ function Plans() {
                             transform="translateX(-50%)">
                             <Text
                                 textTransform="uppercase"
-                                bg={useColorModeValue('red.300', 'red.700')}
+                                bg="red"
                                 px={3}
                                 py={1}
-                                color={useColorModeValue('gray.900', 'gray.300')}
+                                color="white"
                                 fontSize="sm"
                                 fontWeight="600"
                                 rounded="xl">

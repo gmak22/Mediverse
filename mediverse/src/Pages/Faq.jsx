@@ -43,8 +43,8 @@ export const Faqpage = () => {
   ];
 
   return (
-    <Box p={4} bg="#B9B4C7" w="70%" margin="auto" mt={12} mb={12} borderRadius="xl">
-      <Heading as="h1" fontSize="xl" mb={4} textAlign="center">
+    <Box p={4} bg="#B9B4C7" w="70%" margin="auto" mt={12} mb={20} borderRadius="xl">
+      <Heading as="h1" fontSize="2xl" mb={4} textAlign="center">
         Frequently Asked Questions
       </Heading>
       <Accordion allowToggle>

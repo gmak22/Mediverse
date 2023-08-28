@@ -1,43 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,
-    chakra,
     Stack,
     Text,
-    VisuallyHidden,
     Input,
     IconButton,
-    useColorModeValue,
     Image,
     Flex,
-    Button
+    Button,
+    useToast
 } from '@chakra-ui/react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { BiMailSend } from 'react-icons/bi';
-
-const SocialButton = ({ children, label, href }) => {
-    return (
-        <chakra.button
-            bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-            rounded={'full'}
-            w={8}
-            h={8}
-            cursor={'pointer'}
-            as={'a'}
-            href={href}
-            display={'inline-flex'}
-            alignItems={'center'}
-            justifyContent={'center'}
-            transition={'background 0.3s ease'}
-            _hover={{
-                bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-            }}
-        >
-            <VisuallyHidden>{label}</VisuallyHidden>
-            {children}
-        </chakra.button>
-    );
-};
 
 const ListHeader = ({ children }) => {
     return (
@@ -47,80 +21,49 @@ const ListHeader = ({ children }) => {
     );
 };
 
-// export default function Footer() {
-//     return (
-//         <Box
-//             bg="#add8e6"
-//             color={useColorModeValue('gray.700', 'gray.200')}
-//         >
-//             <Container as={Stack} maxW={'6xl'} py={10}>
-//                 <SimpleGrid
-//                     templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
-//                     spacing={13}
-//                 >
-//                     <Stack spacing={6}>
-//                         <Box>
-//                             <Image src="https://i.ibb.co/HChDPm0/Mediverse-3.png" alt="Mediverse" width={100} />
-//                         </Box>
-//                         <Text fontSize={'sm'}>© 2024 Mediverse. All rights reserved</Text>
-//                         <Stack direction={'row'} spacing={3}>
-//                             <SocialButton label={'Twitter'}>
-//                                 <FaTwitter />
-//                             </SocialButton>
-//                             <SocialButton label={'YouTube'}>
-//                                 <FaYoutube />
-//                             </SocialButton>
-//                             <SocialButton label={'Instagram'}>
-//                                 <FaInstagram />
-//                             </SocialButton>
-//                         </Stack>
-//                     </Stack>
-//                     <Stack align={'flex-start'}>
-//                         <ListHeader>Contact Us</ListHeader>
-//                         <Box>+91 8080123568</Box>
-//                         <Box>support@mediverse.com</Box>
-//                     </Stack>
-//                     <Stack align={'flex-start'}>
-//                         <ListHeader>Support</ListHeader>
-//                         <Box>Help Center</Box>
-//                         <Box>Terms of Service</Box>
-//                         <Box>Legal</Box>
-//                         <Box>Privacy Policy</Box>
-//                     </Stack>
-//                     <Stack align={'flex-start'}>
-//                         <ListHeader>Subscribe To Our Newsletter</ListHeader>
-//                         <Stack direction={'row'}>
-//                             <Input
-//                                 placeholder='Your email address'
-//                                 border={0}
-//                                 bg="white"
-//                             />
-//                             <IconButton
-//                                 bg={useColorModeValue('green.400', 'green.800')}
-//                                 color={useColorModeValue('white', 'gray.800')}
-//                                 _hover={{
-//                                     bg: 'green.600',
-//                                 }}
-//                                 aria-label="Subscribe"
-//                                 icon={<BiMailSend />}
-//                             />
-//                         </Stack>
-//                     </Stack>
-//                 </SimpleGrid>
-//             </Container>
-//         </Box>
-//     );
-// }
+const isEmailValid = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+};
 
 export default function Footer() {
+    const toast = useToast();
+    const [email, setEmail] = useState('');
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handleSubscribe = () => {
+        if (isEmailValid(email)) {
+            toast({
+                title: 'Subscribed!',
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            });
+            setEmail('');
+        } else {
+            toast({
+                title: 'Invalid Email',
+                description: 'Please enter a valid email address.',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
+    };
+
     return (
 
         <Box bg="#337CCF">
-            <Flex justifyContent="space-evenly" p={10} color="white">
+            <Flex justifyContent="space-around" p={10} color="white">
                 <Stack spacing={6}>
                     <Box>
-                        <Image src="https://i.ibb.co/HChDPm0/Mediverse-3.png" alt="Mediverse" width={100} />
+                        <Image src="https://i.ibb.co/HChDPm0/Mediverse-3.png" alt="Mediverse" width={100} borderRadius="md" w={150}/>
                     </Box>
+                    <Text fontSize={'lg'}>268, Elizabeth Road, Broklyn</Text>
+                    <Text fontSize={'lg'}>USA</Text>
                     <Text fontSize={'lg'}>© 2024 Mediverse. All rights reserved</Text>
 
                     <Flex gap={5}>
@@ -137,8 +80,26 @@ export default function Footer() {
                 </Stack>
 
                 <Box>
+                    <ListHeader>Opening Hours</ListHeader>
+                    <Flex gap="6">
+                        <Box>
+                            <Box>Mon - Tue</Box>
+                            <Box>Wed - Thur</Box>
+                            <Box>Fri - Sat</Box>
+                            <Box>Sunday</Box>
+                        </Box>
+                        <Box>
+                            <Box>8 AM - 5 PM</Box>
+                            <Box>9 AM - 6 PM</Box>
+                            <Box>8 AM - 5 PM</Box>
+                            <Box>Emergency Only</Box>
+                        </Box>
+                    </Flex>
+                </Box>
+
+                <Box>
                     <ListHeader>Contact Us</ListHeader>
-                    <Box>+91 8080123568</Box>
+                    <Box>+2819 (4613) 2930</Box>
                     <Box>support@mediverse.com</Box>
                 </Box>
 
@@ -154,18 +115,22 @@ export default function Footer() {
                     <ListHeader>Subscribe To Our Newsletter</ListHeader>
                     <Stack direction={'row'}>
                         <Input
+                            type="email"
                             placeholder='Your email address'
-                            border={0}
-                            bg="white"
+                            bg="#add8e6"
+                            color="black"
+                            value={email}
+                            onChange={handleEmailChange}
                         />
                         <IconButton
-                            bg={useColorModeValue('green.400', 'green.800')}
-                            color={useColorModeValue('white', 'gray.800')}
+                            bg="green"
+                            color="white"
                             _hover={{
                                 bg: 'green.600',
                             }}
                             aria-label="Subscribe"
                             icon={<BiMailSend />}
+                            onClick={handleSubscribe}
                         />
                     </Stack>
                 </Stack>

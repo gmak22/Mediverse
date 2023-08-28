@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Box,
+    Text,
     Flex,
     Button,
     Input,
@@ -88,16 +89,17 @@ function Signup() {
         <Box
             w="35%"
             margin="auto"
-            bg="#E2C799" p={3}
+            bg="#F2ECBE" p={3}
             mt={8} mb={8}
             borderRadius="xl"
+            borderColor="black"
         >
             <Box id="main" textAlign="center" py="8" >
                 <form onSubmit={handleSignup}>
                     <Heading as="h2" mb="4">
                         Sign Up
                     </Heading>
-                    <p>Create a free account with your email</p>
+                    <Text fontWeight="bold">Create a free account with your email</Text>
                     <FormControl id="nameInput" mb="4">
                         <FormLabel>Name</FormLabel>
                         <Input
@@ -135,8 +137,8 @@ function Signup() {
                         Sign up
                     </Button>
 
-                    <Flex margin="auto" mt="4" w="80%">
-                        <p>Already a member?</p>
+                    <Flex margin="auto" mt="4" w="80%" fontWeight="bold">
+                        <p>Already a member ?</p>
                         <Spacer />
                         <Link href="/login" color="blue">Sign In</Link>
                     </Flex>

@@ -10,7 +10,7 @@ const testimonials = [
   {
     username: "Emily Turner",
     content: "The team at Mediverse provided me with exceptional care and support. They took the time to explain my treatment options and made me feel confident in my health decisions.",
-    image: "https://i.ibb.co/TvmR34H/beautiful-woman-standing-against-yellow-wall.jpg",
+    image: "https://img.freepik.com/free-photo/front-view-beautiful-pregnant-woman-home_23-2148765052.jpg",
   },
   {
     username: "Michael Harris",
@@ -20,12 +20,12 @@ const testimonials = [
   {
     username: "Jessica Collins",
     content: "Mediverse has been a reliable partner in my healthcare journey. From routine check-ups to more complex treatments, their team has always been supportive, knowledgeable, and thorough.",
-    image: "https://i.ibb.co/TvmR34H/beautiful-woman-standing-against-yellow-wall.jpg"
+    image: "https://images.pexels.com/photos/1520760/pexels-photo-1520760.jpeg"
   },
   {
     username: "Alexander Lee",
     content: "Mediverse's team goes above and beyond to ensure patient comfort and satisfaction. Their commitment to providing accessible and high-quality care is truly commendable.",
-    image: "https://images.pexels.com/photos/1520760/pexels-photo-1520760.jpeg"
+    image: "https://img.freepik.com/free-photo/smiling-young-man-with-crossed-arms-outdoors_1140-255.jpg"
   }
 ]
 

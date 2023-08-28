@@ -53,9 +53,9 @@ function Login() {
 
   return (
     <Box textAlign="center"
-      py="8" w="35%"
+      py="8" w="32%"
       margin="auto"
-      bg="#A2FF86" p={3}
+      bg="#A2FF86" p={5}
       mt={8} mb={8}
       borderRadius="xl"
     >
@@ -74,7 +74,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormControl>
-        <FormControl id="passwordInput" mb="4">
+        <FormControl id="passwordInput" mb="8">
           <FormLabel>Password</FormLabel>
           <Input
             type="password"
@@ -88,8 +88,8 @@ function Login() {
         <Button type="submit" colorScheme="blue">
           Log in
         </Button>
-        <Flex margin="auto" mt="4" w="80%">
-          <p>Not a member?</p>
+        <Flex margin="auto" mt="4" w="80%" fontWeight="bold">
+          <p>Not a member ?</p>
           <Spacer />
           <Link href="/signup" color="blue">Sign Up</Link>
         </Flex>
